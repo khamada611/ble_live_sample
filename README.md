@@ -39,7 +39,7 @@ Now you can visit [`localhost:4001`](https://localhost:4001) from your browser.
 
   * __In this example, this phx server use a self-signed certificate.__
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+Ready to run in production? Please [check deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
 ## How to use thie server
 
@@ -53,7 +53,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
  * Then display LightBlue application. don't use screen lock while this test 
  * You visit https//xxx.xxx.xxx.xxx:4001 (xxx is server's IP) __with using Chrome(*1)__
  * Then you can check like this gif
-      * https://twitter.com/ken_hamada/status/1112963640578076672
+      * https://twitter.com/ken_hamada/status/1114535963349225472
 
 (*1) suppoted chorme is .. https://www.chromestatus.com/feature/5264933985976320
 
@@ -66,6 +66,10 @@ About Phoenix
   * Docs: https://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
+
+About LiveView
+
+  * GitHub: https://github.com/phoenixframework/phoenix_live_view
 
 About WebBluetooth
 
