@@ -1,0 +1,10 @@
+/* This file is for your main application css. */
+
+@import "./phoenix.css";
+
+/* add ble sample */
+@import "../../deps/phoenix_live_view/assets/css/live_view.css";
+
+.blesample_hidden {
+    visibility:hidden;
+ }
