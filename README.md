@@ -1,5 +1,7 @@
 # BleLiveSample
 
+[Demonstration(my Twitter)](https://twitter.com/ken_hamada/status/1114535963349225472)
+
 This is a sample of Phoenix LiveView. This webserver gets Bluetooth Low Energy's hert rate sensor data, and view its results.
 
 ![Image](android_ble.jpg)
