@@ -34,27 +34,37 @@ defmodule BleLiveSampleWeb do
         namespace: BleLiveSampleWeb
 
       # Import convenience functions from controllers
-      import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
+      import Phoenix.Controller,
+        only: [get_flash: 1, get_flash: 2, view_module: 1, view_template: 1]
 
-      # Use all HTML functionality (forms, tags, etc)
-      use Phoenix.HTML
+      # Include shared imports and aliases for views
+      unquote(view_helpers())
+    end
+  end
 
-      import BleLiveSampleWeb.ErrorHelpers
-      import BleLiveSampleWeb.Gettext
-      alias BleLiveSampleWeb.Router.Helpers, as: Routes
+  def live_view do
+    quote do
+      use Phoenix.LiveView,
+        layout: {BleLiveSampleWeb.LayoutView, "live.html"}
 
-      # add ble sample
-      import Phoenix.LiveView, only: [live_render: 2, live_render: 3]
+      unquote(view_helpers())
+    end
+  end
+
+  def live_component do
+    quote do
+      use Phoenix.LiveComponent
+
+      unquote(view_helpers())
     end
   end
 
   def router do
     quote do
       use Phoenix.Router
+
       import Plug.Conn
       import Phoenix.Controller
-      
-      #add ble sample
       import Phoenix.LiveView.Router
     end
   end
@@ -63,6 +73,23 @@ defmodule BleLiveSampleWeb do
     quote do
       use Phoenix.Channel
       import BleLiveSampleWeb.Gettext
+    end
+  end
+
+  defp view_helpers do
+    quote do
+      # Use all HTML functionality (forms, tags, etc)
+      use Phoenix.HTML
+
+      # Import LiveView helpers (live_render, live_component, live_patch, etc)
+      import Phoenix.LiveView.Helpers
+
+      # Import basic rendering functionality (render, render_layout, etc)
+      import Phoenix.View
+
+      import BleLiveSampleWeb.ErrorHelpers
+      import BleLiveSampleWeb.Gettext
+      alias BleLiveSampleWeb.Router.Helpers, as: Routes
     end
   end
 

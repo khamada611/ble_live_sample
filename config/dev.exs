@@ -7,8 +7,10 @@ use Mix.Config
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 config :ble_live_sample, BleLiveSampleWeb.Endpoint,
-  https: [ # add ble sample
+  http: [port: 4000],
+  https: [
     port: 4001,
+    cipher_suite: :strong,
     certfile: "priv/cert/selfsigned.pem",
     keyfile: "priv/cert/selfsigned_key.pem"
   ],
@@ -53,11 +55,10 @@ config :ble_live_sample, BleLiveSampleWeb.Endpoint,
 config :ble_live_sample, BleLiveSampleWeb.Endpoint,
   live_reload: [
     patterns: [
-      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
-      ~r{priv/gettext/.*(po)$},
-      ~r{lib/ble_live_sample_web/views/.*(ex)$},
-      ~r{lib/ble_live_sample_web/templates/.*(eex)$},
-      ~r{lib/live_view_counter_web/live/.*(ex)$} # ble sample add
+      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"priv/gettext/.*(po)$",
+      ~r"lib/ble_live_sample_web/(live|views)/.*(ex)$",
+      ~r"lib/ble_live_sample_web/templates/.*(eex)$"
     ]
   ]
 

@@ -1,0 +1,45 @@
+   <div>
+      <h1>Bluetooth low enegry heart rate demo</h1>
+      <button type="button" name="ble_button" onclick="OnButtonClick();">Select</button>
+      <table border="0">
+        <tr>
+          <td>
+            <img id="botImg" src=<%= @pronama %> />
+          </td>
+          <td>
+            <h2 align="left"><%= @serif %><h2>
+          </td>
+        </tr>
+      </table>
+      <form name="ble_test" id="ble_test" phx-change="change">
+            <input type="text" class="blesample_hidden" name="heart_rate" id="heart_rate" value="<%= @heart_rate %>">
+      </form>
+    </div>
+    <script>
+
+      // Web Bluetooth value -> LiveView
+      function IssueBLEEvent(val) {
+        document.ble_test.heart_rate.value = val;
+        var evt = document.createEvent( "MouseEvents" );
+        evt.initEvent( "change", true, true );
+        document.ble_test.heart_rate.dispatchEvent(evt);
+      }
+
+      // Connect to BLE hert rate device.
+      function OnButtonClick() {
+        heartRateSensor.connect()
+          .then(() => heartRateSensor.startNotificationsHeartRateMeasurement().then(handleHeartRateMeasurement))
+          .catch(error => {
+            alert("BLUETOOTH_ERROR>" + error);
+          });
+      }
+
+      // Callback from Web Bluetooth. notify hert rate data.
+      function handleHeartRateMeasurement(heartRateMeasurement) {
+        heartRateMeasurement.addEventListener('characteristicvaluechanged', event => {
+          var heartRateMeasurement = heartRateSensor.parseHeartRate(event.target.value);
+          IssueBLEEvent(heartRateMeasurement.heartRate);
+        });
+      }
+
+    </script>

@@ -14,19 +14,19 @@ This is a sample of Phoenix LiveView. This webserver gets Bluetooth Low Energy's
 
 ## My environment
 
-### Sysrtem
+### System
 
- * Server : CentOS7 7.5.1804
+ * Server : Ubuntu20.04 LTYS
  * Client : Chrome(MacOS and Android8.x tablet)
  * Device : [iOS LightBlue](https://itunes.apple.com/jp/app/lightblue-explorer/id557428110?mt=8)
     * LightBlue is BLE(Bluetooth Low Enegry) tool of iOS.
 
 ### Software (server side) 
 
- * Node_js v11.12.0
- * Erlang 10.2
- * Elixir 1.7.4
- * Phoenix 1.4.2
+ * Node_js v12.18.2
+ * Erlang 11.0.2
+ * Elixir 1.10.4
+ * Phoenix 1.5.3
 
 ## How to build Phoenix server
 

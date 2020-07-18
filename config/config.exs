@@ -10,10 +10,10 @@ use Mix.Config
 # Configures the endpoint
 config :ble_live_sample, BleLiveSampleWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "g5zksdfBj40BXjFBaP1hzubJHWARe+BZiAZexrU7A7puyS44e8IrAV+Q96B9nrvz",
-  render_errors: [view: BleLiveSampleWeb.ErrorView, accepts: ~w(html json)],
-  live_view: [ signing_salt: "BHatZYte+xeS0qTgz1gsZ9JOr9/+myDO" ], # add ble sample
-  pubsub: [name: BleLiveSample.PubSub, adapter: Phoenix.PubSub.PG2]
+  secret_key_base: "LhP9x3r+giRRyD9KdHPOuy3WcX6u+dJWAUktLcD1spo8G10BjLprbQicMrr4WFO5",
+  render_errors: [view: BleLiveSampleWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: BleLiveSample.PubSub,
+  live_view: [signing_salt: "JEM2Ojvh"]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -22,10 +22,6 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
-
-# add ble sample
-config :phoenix,
-  template_engines: [leex: Phoenix.LiveView.Engine]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
